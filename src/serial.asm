@@ -16,11 +16,11 @@ E  = %01000000          ; Enable (PB6)
 RW = %00100000          ; Read/Write (PB5)
 RS = %00010000          ; Register Select (PB4)
                         ; PB3-PB0 son DB7-DB4 en el LCD
-    .org $8000
+    .org $1000
 
 reset:
-    ldx #$ff            ; Inicializar el 'Stack Pointer'
-    txs
+    ; ldx #$ff            ; Inicializar el 'Stack Pointer'
+    ; txs
 
     lda #%11111111      ; todo el puerto B es salida
     sta DDRB
@@ -38,14 +38,14 @@ reset:
     lda #%00000010       ; Cursor Home
     jsr lcd_instruction
     
-    lda #$00
-    sta ACIA_STATUS     ; Soft reset
+    ; lda #$00
+    ; sta ACIA_STATUS     ; Soft reset
 
-    lda #$1f            ; 1 stop bit, no paridad, palabras de 8 bits, 19200 baud
-    sta ACIA_CTRL
+    ; lda #$1f            ; 1 stop bit, no paridad, palabras de 8 bits, 19200 baud
+    ; sta ACIA_CTRL
 
-    lda #$0b            ; no interrupciones, no paridad, no eco
-    sta ACIA_CMD
+    ; lda #$0b            ; no interrupciones, no paridad, no eco
+    ; sta ACIA_CMD
     
     ldx #0
 send_message:
@@ -162,14 +162,14 @@ print_char:
     sta PORTB
     rts
     
-nmi:
-    rti
+; nmi:
+;     rti
 
-irq:
-    rti
+; irq:
+;     rti
 
-; Vectores de Reset/Interrupciones
-    .org $fffa
-    .word nmi
-    .word reset
-    .word irq
+; ; Vectores de Reset/Interrupciones
+;     .org $fffa
+;     .word nmi
+;     .word reset
+;     .word irq

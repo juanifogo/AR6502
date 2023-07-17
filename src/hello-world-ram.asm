@@ -72,26 +72,26 @@ lcdbusy:
 
 lcd_init:               ; Inicializa el LCD en modo 4 bits, primero en 8 bits,
     pha                 ; leer LCDfunctionSet.md para mas info
-    lda #%00000011      ; modo de 8 bits
-    sta PORTB
-    ora #E              ; E
-    sta PORTB
-    and #%00001111      ; !E
-    sta PORTB
+    ; lda #%00000011      ; modo de 8 bits
+    ; sta PORTB
+    ; ora #E              ; E
+    ; sta PORTB
+    ; and #%00001111      ; !E
+    ; sta PORTB
 
-    lda #%00000011      ; modo de 8 bits
-    sta PORTB
-    ora #E              ; E
-    sta PORTB
-    and #%00001111      ; !E
-    sta PORTB
+    ; lda #%00000011      ; modo de 8 bits
+    ; sta PORTB
+    ; ora #E              ; E
+    ; sta PORTB
+    ; and #%00001111      ; !E
+    ; sta PORTB
 
-    lda #%00000011      ; modo de 8 bits
-    sta PORTB
-    ora #E              ; E
-    sta PORTB
-    and #%00001111      ; !E
-    sta PORTB
+    ; lda #%00000011      ; modo de 8 bits
+    ; sta PORTB
+    ; ora #E              ; E
+    ; sta PORTB
+    ; and #%00001111      ; !E
+    ; sta PORTB
 
     ; Ahora estamos seguros de que esta en modo de 8 bits, podemos ponerlo en 
     ; modo de 4 bits
